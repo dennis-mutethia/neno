@@ -1,0 +1,90 @@
+
+<!-- Sidebar -->
+<div id="sidebar">
+    <div class="inner">
+
+        <!-- Search -->
+        <section id="search" class="alt">
+            <form method="post" action="#">
+                <input type="text" name="query" id="query" placeholder="Search" />
+            </form>
+        </section>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <header class="major">
+                <h2>Menu</h2>
+            </header>
+            <ul>
+                <li style="color: {{ 'red' if page=='home' else 'black' }};"><a href="index.html">Homepage</a></li>
+                <li><a href="generic.html">Generic</a></li>
+                <li><a href="elements.html">Elements</a></li>
+                <li>
+                    <span class="opener">Submenu</span>
+                    <ul>
+                        <li><a href="#">Lorem Dolor</a></li>
+                        <li><a href="#">Ipsum Adipiscing</a></li>
+                        <li><a href="#">Tempus Magna</a></li>
+                        <li><a href="#">Feugiat Veroeros</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Etiam Dolore</a></li>
+                <li><a href="#">Adipiscing</a></li>
+                <li>
+                    <span class="opener">Another Submenu</span>
+                    <ul>
+                        <li><a href="#">Lorem Dolor</a></li>
+                        <li><a href="#">Ipsum Adipiscing</a></li>
+                        <li><a href="#">Tempus Magna</a></li>
+                        <li><a href="#">Feugiat Veroeros</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Maximus Erat</a></li>
+                <li><a href="#">Sapien Mauris</a></li>
+                <li><a href="#">Amet Lacinia</a></li>
+            </ul>
+        </nav>
+
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>Upcoming Events</h2>
+            </header>
+            <div class="mini-posts">
+                <article>
+                    <a href="#" class="image"><img src="{{ url_for('static', filename='images/crusade.jpg') }}" alt="" /></a>
+                    <p>Bungoma 2 Days Healing & Deliverance Crusade - Poster Grounds : 6th & 7th Aug 2023 </p>
+                </article>
+                <article>
+                    <a href="#" class="image"><img src="{{ url_for('static', filename='images/crusade_2.jpg') }}" alt="" /></a>
+                    <p>Huruma Healing & Deliverance Crusade - Huruma Primary Grounds : 24th - 26th Sep 2016</p>
+                </article>
+            </div>
+            <ul class="actions">
+                <li><a href="#" class="button">More</a></li>
+            </ul>
+        </section>
+
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>We’d Love to Hear From You!</h2>
+            </header>
+            <p>
+                Have a question, need prayer, or want to connect with us? Reach out today, and we’ll be happy to assist.
+            </p>
+            <ul class="contact">
+                <li class="icon solid fa-envelope"><a href="#">info@neno.co.ke</a></li>
+                <li class="icon solid fa-phone">(+254) 101 556532</li>
+                <li class="icon solid fa-home">Uhuru Highway - Haile Selassie Avenue Junction<br />
+                    Nairobi, Kenya</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright">&copy; Untitled. All rights reserved. Design: <a href="https://matrixsys.co.ke">Matrix Systems</a>.</p>
+        </footer>
+
+    </div>
+</div>

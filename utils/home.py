@@ -6,4 +6,4 @@ class Home():
         pass
     
     def __call__(self):
-        return render_template('home.html', page='homef')
+        return render_template('home.html', page='home')
