@@ -1,0 +1,7 @@
+python-dotenv
+psycopg2-binary
+Flask
+Flask-Login
+flask-session
+user-agents
+redis
