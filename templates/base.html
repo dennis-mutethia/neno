@@ -11,17 +11,50 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" /><!-- Favicon icon -->
 		<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/logo.png') }}">
-	
+		<style>
+			.sticky-section {
+				position: sticky;
+				top: 0;
+				background-color: white; /* Add background to prevent overlap */
+				padding: 10px 0px;
+				text-align: right;
+				border-bottom: 1px solid #ddd;
+				z-index: 1000; /* Ensures it stays above other content */
+			}
+		</style>
 	</head>
 
 	<body class="is-preload">
 
 		<!-- Wrapper -->
 		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<div class="sticky-section">
+						<div class="row">
+							<div class="col-9">
+								<h3 style="color: blue">NENO Evangelism Centre</h3>
+								<ul class="icons" style="color: red; font-size: smaller; font-weight: bolder;">
+									<li>TILL NO: 123 456</li>
+									<li>MPESA NO: 0722 410 381</li>							
+								</ul>
+							</div>
+							<div class="col-3">
+								<img 
+									src="{{ url_for('static', filename='images/logo.png') }}" 
+									alt="" 
+									style="height: 64px;"
+								/>
+							</div>
+						</div>
+					</div>
 
-            {% block main %}
-            <!-- Default content goes here -->
-            {% endblock %}
+					{% block main %}
+					<!-- Default content goes here -->
+					{% endblock %}
+
+				</div>
+			</div>
 
 			{% include 'sidebar.html' %}
 

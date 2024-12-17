@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<style>
+	iframe {
+      width: 100%;
+      border: none;
+    }
+</style>
+<!-- Main -->
+<div id="main">
+	<div class="inner">	
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>Upcoming Events</h2>
+            </header>
+            <div class="mini-posts">
+                <article>
+                    <a href="#" class="image"><img src="{{ url_for('static', filename='images/crusade.jpg') }}" alt="" /></a>
+                    <p>Bungoma 2 Days Healing & Deliverance Crusade - Poster Grounds : 6th & 7th Aug 2023 </p>
+                </article>
+                <article>
+                    <a href="#" class="image"><img src="{{ url_for('static', filename='images/crusade_2.jpg') }}" alt="" /></a>
+                    <p>Huruma Healing & Deliverance Crusade - Huruma Primary Grounds : 24th - 26th Sep 2016</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>Featured Events</h2>
+            </header>
+            <div class="mini-posts">
+                <article>
+                    <iframe 
+						src="https://www.youtube.com/embed/ImhOwGb10fQ?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
+						allow="autoplay; encrypted-media" 
+						allowfullscreen>
+					</iframe>
+                    <p>Kitengela Crusade Praise and Worship</p>
+                </article>
+                <article>
+                    <iframe 
+						src="https://www.youtube.com/embed/OR1zQPeC9Rc?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
+						allow="autoplay; encrypted-media" 
+						allowfullscreen>
+					</iframe>
+                    <p>Best Praise and Worship</p>
+                </article>
+            </div>
+        </section>
+
+	</div>
+</div>
+
+{% endblock %}

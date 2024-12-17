@@ -1,4 +1,8 @@
-
+<style>
+    nav ul li{
+        color: black
+    }
+</style>
 <!-- Sidebar -->
 <div id="sidebar">
     <div class="inner">
@@ -16,34 +20,38 @@
                 <h2>Menu</h2>
             </header>
             <ul>
-                <li style="color: {{ 'red' if page=='home' else 'black' }};"><a href="index.html">Homepage</a></li>
-                <li><a href="generic.html">Generic</a></li>
-                <li><a href="elements.html">Elements</a></li>
+                <li style="color: {{ 'red' if page=='home' else 'black' }};"><a href="{{ url_for('home') }}">Homepage</a></li>
+                <li class="active" style="color: {{ 'red' if page=='events' else 'black' }};"><a href="{{ url_for('events') }}">Events</a></li>
+                <li style="color: {{ 'red' if page=='live' else 'black' }};"><a href="{{ url_for('live') }}">Sasa T.V Live</a></li>
                 <li>
-                    <span class="opener">Submenu</span>
+                    <span class="active opener">Videos</span>
                     <ul>
-                        <li><a href="#">Lorem Dolor</a></li>
-                        <li><a href="#">Ipsum Adipiscing</a></li>
-                        <li><a href="#">Tempus Magna</a></li>
-                        <li><a href="#">Feugiat Veroeros</a></li>
+                        <li style="color: {{ 'red' if page=='top_videos' else 'black' }};"><a href="{{ url_for('top_videos') }}">Top Videos</a></li>
+                        <li style="color: {{ 'red' if page=='sermons' else 'black' }};"><a href="{{ url_for('sermons') }}">Sermons</a></li>
+                        <li style="color: {{ 'red' if page=='testimonies' else 'black' }};"><a href="{{ url_for('testimonies') }}">Testimonies</a></li>
+                        <li style="color: {{ 'red' if page=='praise_and_worship' else 'black' }};"><a href="{{ url_for('praise_and_worship') }}">Praise & Worship</a></li>
+                        <li style="color: {{ 'red' if page=='outreach' else 'black' }};"><a href="{{ url_for('outreach') }}">Outreach</a></li>
                     </ul>
-                </li>
-                <li><a href="#">Etiam Dolore</a></li>
-                <li><a href="#">Adipiscing</a></li>
-                <li>
-                    <span class="opener">Another Submenu</span>
-                    <ul>
-                        <li><a href="#">Lorem Dolor</a></li>
-                        <li><a href="#">Ipsum Adipiscing</a></li>
-                        <li><a href="#">Tempus Magna</a></li>
-                        <li><a href="#">Feugiat Veroeros</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Maximus Erat</a></li>
-                <li><a href="#">Sapien Mauris</a></li>
-                <li><a href="#">Amet Lacinia</a></li>
+                </li>                
             </ul>
         </nav>
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>Support Us</h2>
+            </header>       
+            <blockquote>
+                So let each one give as he purposes in his heart, not grudgingly or of necessity; for God loves a cheerful giver.
+                - 2 Corinthians 9:7 (NKJV)
+            </blockquote> 
+            <ul class="contact">
+                <li class="icon solid fa-calendar"><a href="#">TILL No: 123 456</a></li>
+                <li class="icon solid fa-phone">MPESA No: 0722 410 381</li>
+                <li class="icon solid fa-bookmark">PAYBILL No: 247 247 <br />
+                    ACCOUNT NO: 707870
+                </li>
+            </ul>
+        </section>
 
         <!-- Section -->
         <section>
@@ -61,7 +69,7 @@
                 </article>
             </div>
             <ul class="actions">
-                <li><a href="#" class="button">More</a></li>
+                <li><a href="{{ url_for('events') }}" class="button">More Events</a></li>
             </ul>
         </section>
 
@@ -75,7 +83,7 @@
             </p>
             <ul class="contact">
                 <li class="icon solid fa-envelope"><a href="#">info@neno.co.ke</a></li>
-                <li class="icon solid fa-phone">(+254) 101 556532</li>
+                <li class="icon solid fa-phone">(+254) 722 410381</li>
                 <li class="icon solid fa-home">Uhuru Highway - Haile Selassie Avenue Junction<br />
                     Nairobi, Kenya</li>
             </ul>

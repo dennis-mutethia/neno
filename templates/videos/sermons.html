@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<style>
+	iframe {
+      width: 100%;      
+      border: none;
+    }
+</style>
+
+<section>
+    <header class="major">
+        <h2>Sermons Videos</h2>
+    </header>
+    <div class="mini-posts">
+        <article>
+            <iframe 
+                src="https://www.youtube.com/embed/OR1zQPeC9Rc?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+            </iframe>
+            <p>Best Praise and Worship</p>
+        </article>
+        <article>
+            <iframe 
+                src="https://www.youtube.com/embed/ImhOwGb10fQ?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+            </iframe>
+            <p>Kitengela Crusade Praise and Worship</p>
+        </article>
+    </div>
+</section>
+
+{% endblock %}

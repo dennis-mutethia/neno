@@ -1,31 +1,61 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<!-- Main -->
-<div id="main">
-	<div class="inner">
-		<!-- Banner -->
-		<section id="banner">
-			<div class="content">
-				<header>
-					<h1>Hi, Welcome to Neno Evangelism Centre</h1>
-					<p>What God can do; No man can do</p>
-				</header>
-				<blockquote>
-					Welcome to Neno Evangelism Centre, a place where faith comes alive and miracles happen! 
-					Guided by the powerful truth that <b>"What God Can Do, No Man Can Do"</b>. 
-					We are a vibrant community of believers dedicated to spreading the Gospel of Jesus Christ, 
-					transforming lives through prayer, and sharing God’s love with the world. Join us as we seek His divine presence, 
-					experience His unmatched power, and witness lives being renewed by His grace. 
-					Come and be a part of this extraordinary journey of faith!
-				</blockquote>
-			</div>
-			<span class="image object">
-				<img src="{{ url_for('static', filename='images/church.png') }}" alt="" />
-			</span>
-		</section>
 
+<style>
+	iframe {
+      width: 100%;
+      border: none;
+    }
+</style>
+
+<!-- Banner -->
+<section id="banner">
+	<div class="content">
+		<header>
+			<h1>Hi, Welcome to Neno Evangelism Centre</h1>
+			<p>What God can do; No man can do</p>
+		</header>
+		<blockquote>
+			Welcome to Neno Evangelism Centre, a place where faith comes alive and miracles happen! 
+			Guided by the powerful truth that <b>"What God Can Do, No Man Can Do"</b>. 
+			We are a vibrant community of believers dedicated to spreading the Gospel of Jesus Christ, 
+			transforming lives through prayer, and sharing God’s love with the world. Join us as we seek His divine presence, 
+			experience His unmatched power, and witness lives being renewed by His grace. 
+			Come and be a part of this extraordinary journey of faith!
+		</blockquote>
 	</div>
-</div>
+	<span class="image object">
+		<img src="{{ url_for('static', filename='images/church.png') }}" alt="" />
+	</span>
+</section>
+
+<!-- Section -->
+<section>
+	<header class="major">
+		<h2>Featured Videos</h2>
+	</header>
+	<div class="mini-posts">
+		<article>
+			<iframe 
+				src="https://www.youtube.com/embed/OR1zQPeC9Rc?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
+				allow="autoplay; encrypted-media" 
+				allowfullscreen>
+			</iframe>
+			<p>Best Praise and Worship</p>
+		</article>
+		<article>
+			<iframe 
+				src="https://www.youtube.com/embed/ImhOwGb10fQ?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
+				allow="autoplay; encrypted-media" 
+				allowfullscreen>
+			</iframe>
+			<p>Kitengela Crusade Praise and Worship</p>
+		</article>
+	</div>
+	<ul class="actions">
+		<li><a href="{{ url_for('top_videos') }}" class="button">More Videos</a></li>
+	</ul>
+</section>
 
 {% endblock %}
