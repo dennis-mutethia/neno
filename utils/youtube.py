@@ -24,9 +24,6 @@ class Youtube():
             )
             response = request.execute()
 
-            # Debugging: Print the response to check if 'items' is present
-            print("API Response:", response)
-
             # Check if 'items' is in the response
             if 'items' in response and len(response['items']) > 0:
                 channel_id = response['items'][0]['snippet']['channelId']

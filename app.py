@@ -18,7 +18,8 @@ def index():
 
 @app.route('/home', methods=['GET'])
 def home(): 
-    return render_template('home.html', page='home')
+    latest_videos = youtube.get_channel_videos(5)
+    return render_template('home.html', page='home', latest_videos=latest_videos)
 
 @app.route('/events', methods=['GET'])
 def events(): 

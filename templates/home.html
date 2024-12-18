@@ -30,32 +30,28 @@
 	</span>
 </section>
 
+
+
 <!-- Section -->
 <section>
-	<header class="major">
-		<h2>Featured Videos</h2>
-	</header>
-	<div class="mini-posts">
-		<article>
-			<iframe 
-				src="https://www.youtube.com/embed/OR1zQPeC9Rc?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
-				allow="autoplay; encrypted-media" 
-				allowfullscreen>
-			</iframe>
-			<p>Best Praise and Worship</p>
-		</article>
-		<article>
-			<iframe 
-				src="https://www.youtube.com/embed/ImhOwGb10fQ?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
-				allow="autoplay; encrypted-media" 
-				allowfullscreen>
-			</iframe>
-			<p>Kitengela Crusade Praise and Worship</p>
-		</article>
-	</div>
-	<ul class="actions">
-		<li><a href="{{ url_for('top_videos') }}" class="button">More Videos</a></li>
-	</ul>
+    <header class="major">
+        <h2>Latest Top Videos</h2>
+    </header>
+    <div class="mini-posts">
+        {% for video in latest_videos %}
+            <article>
+                <iframe 
+                    src="https://www.youtube.com/embed/{{ video.video_id }}?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+                </iframe>
+                <p style="color: black">{{ video.title }}</p>
+            </article>
+        {% endfor %}
+    </div>
+    <ul class="actions">
+        <li><a href="{{ url_for('top_videos') }}" class="button">More Videos</a></li>
+    </ul>
 </section>
 
 {% endblock %}
