@@ -9,7 +9,8 @@ class Execute():
         self.db = Db()
     
     def __call__(self):
-        for video in self.youtube.get_channel_videos(max_results=100):
+        for video in self.youtube.get_channel_videos(max_results=10):
+            print(video)
             self.db.add_video(
                 video['videoId'], 
                 video['title'], 

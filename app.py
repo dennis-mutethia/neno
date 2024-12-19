@@ -28,12 +28,12 @@ def events():
 @app.route('/live', methods=['GET'])
 def live(): 
     latest_videos = db.get_videos(liveBroadcastContent='none', limit=5)
-    live_video = db.get_videos(liveBroadcastContent='live', limit=1)
-    return render_template('live.html', page='live', latest_videos=latest_videos, live_video=live_video)
+    live_videos = db.get_videos(liveBroadcastContent='live', limit=1)
+    return render_template('live.html', page='live', latest_videos=latest_videos, live_videos=live_videos)
 
 @app.route('/top-videos', methods=['GET'])
 def top_videos(): 
-    latest_videos = db.get_videos(liveBroadcastContent='none', limit=10)
+    latest_videos = db.get_videos(liveBroadcastContent='none', limit=30)
     return render_template('videos/top.html', page='top_videos', latest_videos=latest_videos)
 
 @app.route('/sermons', methods=['GET'])
