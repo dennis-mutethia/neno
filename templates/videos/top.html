@@ -12,20 +12,30 @@
 <!-- Section -->
 <section>
     <header class="major">
-        <h2>Latest Top Videos</h2>
+        <h2>Latest Top Videos <small style="font-size: small;">(Page {{ current_page }})</small></h2>
     </header>
     <div class="mini-posts">
-        {% for video in latest_videos %}
-            <article>
-                <iframe 
-                    src="https://www.youtube.com/embed/{{ video.videoId }}?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
-                    allow="autoplay; encrypted-media" 
-                    allowfullscreen>
-                </iframe>
-                <p style="color: black">{{ video.title }}</p>
-            </article>
-        {% endfor %}
+        <div class="row">
+            {% for video in latest_videos %}
+                <div class="col-6">
+                    <article>
+                        <iframe 
+                            src="https://www.youtube.com/embed/{{ video.videoId }}?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
+                            allow="autoplay; encrypted-media" 
+                            allowfullscreen>
+                        </iframe>
+                        <p style="color: black">{{ video.title | safe }}</p>
+                    </article>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+    <ul class="actions">
+        {% if current_page>1 %}
+            <li><a href="{{ url_for('top_videos') }}?current_page={{ current_page-1 }}" class="button">Previous Page</a></li>
+        {% endif %}
+        <li><a href="{{ url_for('top_videos') }}?current_page={{ current_page+1 }}" class="button">More Videos</a></li>
+    </ul>
 </section>
 
 {% endblock %}

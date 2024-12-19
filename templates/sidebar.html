@@ -21,9 +21,10 @@
             </header>
             <ul>
                 <li style="color: {{ 'red' if page=='home' else 'black' }};"><a href="{{ url_for('home') }}">Homepage</a></li>
-                <li class="active" style="color: {{ 'red' if page=='events' else 'black' }};"><a href="{{ url_for('events') }}">Events</a></li>
                 <li style="color: {{ 'red' if page=='live' else 'black' }};"><a href="{{ url_for('live') }}">Live T.V</a></li>
-                <li>
+                <li style="color: {{ 'red' if page=='top_videos' else 'black' }};"><a href="{{ url_for('top_videos') }}">Top Videos</a></li>
+                <li class="active" style="color: {{ 'red' if page=='events' else 'black' }};"><a href="{{ url_for('events') }}">Events</a></li>
+                <!-- <li>
                     <span class="active opener">Videos</span>
                     <ul>
                         <li style="color: {{ 'red' if page=='top_videos' else 'black' }};"><a href="{{ url_for('top_videos') }}">Top Videos</a></li>
@@ -32,7 +33,7 @@
                         <li style="color: {{ 'red' if page=='praise_and_worship' else 'black' }};"><a href="{{ url_for('praise_and_worship') }}">Praise & Worship</a></li>
                         <li style="color: {{ 'red' if page=='outreach' else 'black' }};"><a href="{{ url_for('outreach') }}">Outreach</a></li>
                     </ul>
-                </li>                
+                </li>                 -->
             </ul>
         </nav>
         <!-- Section -->

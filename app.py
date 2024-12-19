@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from flask import Flask, redirect, render_template, url_for
+from flask import Flask, redirect, render_template, url_for, request
 
 from utils.db import Db
 
@@ -18,7 +18,7 @@ def index():
 
 @app.route('/home', methods=['GET'])
 def home():                 
-    latest_videos = db.get_videos(liveBroadcastContent='none', limit=5)
+    latest_videos = db.get_videos(liveBroadcastContent='none', limit=4)
     return render_template('home.html', page='home', latest_videos=latest_videos)
 
 @app.route('/events', methods=['GET'])
@@ -27,14 +27,17 @@ def events():
 
 @app.route('/live', methods=['GET'])
 def live(): 
-    latest_videos = db.get_videos(liveBroadcastContent='none', limit=5)
+    latest_videos = db.get_videos(liveBroadcastContent='none', limit=4)
     live_videos = db.get_videos(liveBroadcastContent='live', limit=1)
     return render_template('live.html', page='live', latest_videos=latest_videos, live_videos=live_videos)
 
 @app.route('/top-videos', methods=['GET'])
 def top_videos(): 
-    latest_videos = db.get_videos(liveBroadcastContent='none', limit=30)
-    return render_template('videos/top.html', page='top_videos', latest_videos=latest_videos)
+    current_page = int(request.args.get('current_page', 1))
+    limit = 10
+    latest_videos = db.get_videos(liveBroadcastContent='none', limit=limit, current_page=current_page)
+    next_page = current_page+1 if len(latest_videos) == limit else 0
+    return render_template('videos/top.html', page='top_videos', latest_videos=latest_videos, current_page=current_page, next_page=next_page)
 
 @app.route('/sermons', methods=['GET'])
 def sermons(): 

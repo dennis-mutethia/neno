@@ -37,7 +37,8 @@ class Db():
             # Reconnect if the connection is invalid
             self.conn = psycopg2.connect(**self.conn_params)  
             
-    def get_videos(self, liveBroadcastContent='none', limit=5):
+    def get_videos(self, liveBroadcastContent='none', limit=5, current_page=1):
+        offset = (current_page - 1) * limit
         self.ensure_connection()
         with self.conn.cursor() as cursor:
             query = """
@@ -45,9 +46,9 @@ class Db():
             FROM youtube_videos
             WHERE liveBroadcastContent = %s
             ORDER BY publishedAt DESC
-            LIMIT %s 
+            LIMIT %s OFFSET %s
             """
-            params = [liveBroadcastContent, limit]
+            params = [liveBroadcastContent, limit, offset]
             cursor.execute(query, tuple(params))
             data = cursor.fetchall()
             videos = []

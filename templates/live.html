@@ -2,17 +2,10 @@
 
 {% block main %}
 
-<style>
-	iframe {
-      width: 100%;      
-      border: none;
-    }
-</style>
-
 <!-- Section -->
 <section>
     <header class="major">
-        <h2>Live T.V</h2>
+        <h2>Live T.V Channel <small style="font-size: small;">(unmute)</small></h2>
     </header>
     <div class="mini-posts">
         <article>
@@ -20,10 +13,9 @@
                 {% for video in live_videos %}
                     <article>
                         <iframe 
-                            src="https://www.youtube.com/embed/{{ video.videoId }}?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
+                            src="https://www.youtube.com/embed/{{ video.videoId }}?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1&autoplay=1&mute=1" 
                             allow="autoplay; encrypted-media" 
-                            allowfullscreen
-                            style="height: 360px;">
+                            allowfullscreen>
                         </iframe>
                         <p style="color: black">{{ video.title }}</p>
                     </article>
@@ -44,16 +36,20 @@
         <h2>Latest Top Videos</h2>
     </header>
     <div class="mini-posts">
-        {% for video in latest_videos %}
-            <article>
-                <iframe 
-                    src="https://www.youtube.com/embed/{{ video.videoId }}?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
-                    allow="autoplay; encrypted-media" 
-                    allowfullscreen>
-                </iframe>
-                <p style="color: black">{{ video.title }}</p>
-            </article>
-        {% endfor %}
+        <div class="row">
+            {% for video in latest_videos %}
+                <div class="col-6">
+                    <article>
+                        <iframe 
+                            src="https://www.youtube.com/embed/{{ video.videoId }}?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1" 
+                            allow="autoplay; encrypted-media" 
+                            allowfullscreen>
+                        </iframe>
+                        <p style="color: black">{{ video.title }}</p>
+                    </article>
+                </div>
+            {% endfor %}
+        </div>
     </div>
     <ul class="actions">
         <li><a href="{{ url_for('top_videos') }}" class="button">More Videos</a></li>
