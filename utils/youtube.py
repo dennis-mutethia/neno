@@ -2,6 +2,8 @@ import os
 from dotenv import load_dotenv
 from googleapiclient.discovery import build
 
+from utils.db import Db
+
 load_dotenv()
 
 class Youtube():
@@ -12,6 +14,7 @@ class Youtube():
         YOUTUBE_API_VERSION = 'v3'
         self.youtube_client = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=YOUTUBE_API_KEY)
         self.channel_id = self.get_channel_id_by_handle(YOUTUBE_CHANNEL_HANDLE)
+        self.db = Db()
                 
     def get_channel_id_by_handle(self, handle):
         try:
@@ -49,10 +52,22 @@ class Youtube():
 
         videos = []
         for item in video_response['items']:
-            video_id = item['id']['videoId']
+            videoId = item['id']['videoId']
             title = item['snippet']['title']
+            description = item['snippet']['description']
+            liveBroadcastContent = item['snippet']['liveBroadcastContent']
+            publishedAt = item['snippet']['publishedAt']
             thumbnail = item['snippet']['thumbnails']['high']['url']
-            videos.append({'title': title, 'video_id': video_id, 'thumbnail': thumbnail})
+            videos.append(
+                {
+                    'videoId': videoId, 
+                    'title': title, 
+                    'description': description,
+                    'liveBroadcastContent': liveBroadcastContent,
+                    'publishedAt': publishedAt,
+                    'thumbnail': thumbnail
+                }
+            )
         
         return videos
 
